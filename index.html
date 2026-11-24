@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#151a2d">
+  <meta name="description" content="Join Mohamed's birthday celebration on January 10, 2027.">
+  <meta property="og:title" content="Mohamed's Birthday Invitation">
+  <meta property="og:description" content="Join the birthday celebration on January 10, 2027 at 5:00 PM.">
+  <meta property="og:type" content="website">
+  <title>Mohamed's Birthday Invitation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- زخارف ثابتة بالخلفية لتعطي شكل احتفالي مرن على كل الشاشات -->
+  <div class="background-decoration" aria-hidden="true">
+    <span class="orb orb-one"></span>
+    <span class="orb orb-two"></span>
+    <span class="sparkle sparkle-one">✦</span>
+    <span class="sparkle sparkle-two">✦</span>
+    <span class="sparkle sparkle-three">✦</span>
+  </div>
+
+  <div class="top-controls">
+    <!-- زر التبديل بين العربي والإنجليزي -->
+    <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to Arabic">
+      <span class="language-icon">EN</span>
+      <span id="languageLabel">العربية</span>
+    </button>
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Play music" aria-pressed="false">
+      <span class="music-icon" aria-hidden="true">▶</span>
+      <span id="musicLabel">Play music</span>
+    </button>
+  </div>
+  <audio id="backgroundMusic" src="sounds/Albumaty.Com_mhmwd_alasyly_kl_snt_-_ealan_wady_dglt_llttwyr_alakary.mp3" loop preload="none"></audio>
+  <p class="music-status" id="musicStatus" role="status" aria-live="polite"></p>
+
+  <!-- اللوحة الرئيسية للدعوة -->
+  <main class="invitation-card">
+    <!-- المنطقة العلوية الخاصة بالاحتفال -->
+    <section class="hero" aria-label="Birthday invitation">
+      <div class="balloons" aria-hidden="true">
+        <span class="balloon balloon-purple"></span>
+        <span class="balloon balloon-gold"></span>
+        <span class="balloon balloon-pink"></span>
+      </div>
+
+      <div class="crown" aria-hidden="true">
+        <span>✦</span>
+        <span>♛</span>
+        <span>✦</span>
+      </div>
+
+      <p class="eyebrow" data-ar="أنت مدعو للاحتفال" data-en="You are invited to celebrate">You are invited to celebrate</p>
+      <h1>
+        <!-- ضع اسم صاحب عيد الميلاد هنا -->
+        <span data-ar="عيد ميلاد" data-en="Birthday">Birthday</span>
+        <strong id="birthdayName">الاسم هنا</strong>
+      </h1>
+
+      <img class="cake-image" src="photos/Colourful Cartoon Birthday Cake Sticker.png" alt="Birthday cake" width="250" height="250" fetchpriority="high" decoding="async">
+    </section>
+
+    <!-- تفاصيل الحفل القابلة للتعديل بسهولة -->
+    <section class="details">
+      <p class="special-message" data-ar="معا من الذكريات الجميلة" data-en="Let's make beautiful memories together">
+        Let's make beautiful memories together
+      </p>
+
+      <div class="details-grid">
+        <article class="detail-item">
+          <span class="detail-icon" aria-hidden="true">📅</span>
+          <div>
+            <small data-ar="التاريخ" data-en="Date">Date</small>
+            <!-- ضع التاريخ هنا، مثال: 30 يونيو 2027 -->
+            <strong id="eventDate">التاريخ هنا</strong>
+          </div>
+        </article>
+
+        <article class="detail-item">
+          <span class="detail-icon" aria-hidden="true">◷</span>
+          <div>
+            <small data-ar="الوقت" data-en="Time">Time</small>
+            <!-- ضع الوقت هنا، مثال: 7:00 مساءً -->
+            <strong id="eventTime">الوقت هنا</strong>
+          </div>
+        </article>
+
+        <article class="detail-item detail-location">
+          <span class="detail-icon" aria-hidden="true">⌖</span>
+          <div>
+            <small data-ar="المكان" data-en="Venue">Venue</small>
+            <!-- ضع اسم المكان والعنوان هنا -->
+            <strong id="eventVenue">المكان هنا</strong>
+          </div>
+        </article>
+      </div>
+
+      <!-- عداد تنازلي: عدل التاريخ داخل app.js عند السطر المكتوب -->
+      <div class="countdown" aria-label="Countdown">
+        <div class="countdown-unit">
+          <strong id="days">00</strong>
+          <span data-ar="يوم" data-en="Days">Days</span>
+        </div>
+        <div class="countdown-unit">
+          <strong id="hours">00</strong>
+          <span data-ar="ساعة" data-en="Hours">Hours</span>
+        </div>
+        <div class="countdown-unit">
+          <strong id="minutes">00</strong>
+          <span data-ar="دقيقة" data-en="Minutes">Minutes</span>
+        </div>
+        <div class="countdown-unit">
+          <strong id="seconds">00</strong>
+          <span data-ar="ثانية" data-en="Seconds">Seconds</span>
+        </div>
+      </div>
+
+      <button class="rsvp-button" id="rsvpButton" type="button">
+        <span data-ar="تأكيد الحضور" data-en="Confirm Attendance">Confirm Attendance</span>
+        <span id="rsvpArrow" aria-hidden="true">→</span>
+      </button>
+    </section>
+  </main>
+
+  <!-- نافذة تأكيد الحضور البسيطة -->
+  <dialog class="rsvp-dialog" id="rsvpDialog">
+    <form method="dialog">
+      <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+      <span class="dialog-icon" aria-hidden="true">🎉</span>
+      <h2 data-ar="يسعدنا حضورك!" data-en="We are excited to see you!">We are excited to see you!</h2>
+      <p data-ar="نتمنى أن تشاركنا أجمل لحظات الاحتفال." data-en="We hope you will share the happiest moments with us.">
+        We hope you will share the happiest moments with us.
+      </p>
+      <button class="dialog-confirm" value="confirm" data-ar="موافق" data-en="Confirm">Confirm</button>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
